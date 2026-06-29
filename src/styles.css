@@ -1,0 +1,111 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Signal semantic tokens */
+  --color-signal-blue: var(--signal-blue);
+  --color-sent-bubble: var(--sent-bubble);
+  --color-recv-bubble: var(--recv-bubble);
+  --color-sidebar-bg: var(--sidebar-bg);
+  --color-chat-bg: var(--chat-bg);
+  --color-header-bg: var(--header-bg);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-online: var(--online);
+  --color-read-blue: var(--read-blue);
+
+  --animate-bounce-dot: bounce-dot 1.2s infinite ease-in-out;
+  --animate-msg-in: msg-in 0.18s ease-out;
+  --animate-toast-in: toast-in 0.25s ease-out;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.21 0.02 252);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 252);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.02 252);
+  --primary: oklch(0.6 0.18 257);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.005 252);
+  --secondary-foreground: oklch(0.21 0.02 252);
+  --muted: oklch(0.96 0.005 252);
+  --muted-foreground: oklch(0.55 0.02 252);
+  --accent: oklch(0.96 0.005 252);
+  --accent-foreground: oklch(0.21 0.02 252);
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.005 252);
+  --input: oklch(0.92 0.005 252);
+  --ring: oklch(0.6 0.18 257);
+
+  /* Signal exact colors */
+  --signal-blue: #3a76f0;
+  --sent-bubble: #d9fdd3;
+  --recv-bubble: #ffffff;
+  --sidebar-bg: #ffffff;
+  --chat-bg: #efeae2;
+  --header-bg: #f0f2f5;
+  --text-primary: #111b21;
+  --text-secondary: #667781;
+  --online: #25d366;
+  --read-blue: #53bdeb;
+}
+
+@keyframes bounce-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+.chat-pattern {
+  background-color: var(--chat-bg);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.025'%3E%3Cpath d='M14 16c1-2 3-2 4 0s0 4-2 4-3-2-2-4zm40 30c1-2 3-2 4 0s0 4-2 4-3-2-2-4zM30 50c2-1 4 1 3 3s-4 1-4-1 0-2 1-2zM60 14c2-1 4 1 3 3s-4 1-4-1z'/%3E%3C/g%3E%3C/svg%3E");
+}
